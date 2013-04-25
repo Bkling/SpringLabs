@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+">
+
+    <bean id="foodService" class="lab2.FoodServiceTipCalculator">
+        <constructor-arg type="lab2.TipService$ServiceQuality" value="FAIR"/>        
+        <constructor-arg type="double" value="125.00"/>
+    </bean>
+    
+    <bean id="baggageService" class="lab2.BaggageServiceTipCalculator">
+        <constructor-arg type="lab2.TipService$ServiceQuality" value="GOOD"/>
+        <constructor-arg type="int" value="5"/>
+    </bean>
+    
+    <bean id="tipService" class="lab2.TipService">
+        <constructor-arg ref="foodService"/>
+    </bean>
+    
+    <bean id="tipService1" class="lab2.TipService">
+        <constructor-arg ref="baggageService"/>
+    </bean>
+    
+</beans>
